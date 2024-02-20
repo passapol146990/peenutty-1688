@@ -12,4 +12,6 @@ app.get('/',(req,res)=>{
     res.render('index.ejs',{img: url});
 })
 
-app.listen(3000);
+app.listen(3030,()=>{
+    console.log("http://localhost:3030");
+});
