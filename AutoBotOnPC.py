@@ -10,8 +10,6 @@ from selenium.webdriver.common.by import By
 import bs4,time,pyperclip
 from selenium import webdriver
 
-
-
 ############## อ่านจาก NameUrlSave.txt เพื่อมาตั้งชื่อไฟล์ .txt เก็บ url ######################
 def ReadNameUrlSave():
     NameUrlSaveValues = []
@@ -553,26 +551,22 @@ class webdriverGet():
             })
         except:
             return {"message":"error set Webdriver","status":404}
-        
     def open(self):
         try:
             self.driver = webdriver.Chrome(options=self.web_options)
         except:
             return {"message":"error open webdriver","status":404}
-            
     def ToLink(self,url):
         try:
             self.driver.switch_to.window(self.driver.window_handles[0])
             self.driver.get(url=url)
         except:
             return {"message":"error get Url","status":404}
-        
     def close(self):
         try:
             self.driver.quit()
         except:
             return {"message":"error close webdriver","status":404}
-
     def checkZero(self):
         try:
             # select 0 
@@ -590,7 +584,6 @@ class webdriverGet():
             return {"message":"เช็ค 0 สินค้าสำเร็จ","status":200}
         except:
             return {"message":"ไม่พบหน้าที่ต้องการให้เช็ค 0","status":404}
-        
     def select_item20(self):
         try:
             # set web index 0
@@ -604,14 +597,12 @@ class webdriverGet():
             time.sleep(1)
         except:
             return {"message":"error select item","status":404}
-
     def DownloadExcel(self):
         try:
             # download excel
             self.driver.find_element(By.XPATH,'/html/body/div/div/div/div[2]/div/div[1]/div/div').click()
         except:
             return {"message":"error Download file","status":404}
-    
     def saveUrl(self,name):
         try:
             self.driver.switch_to.window(self.driver.window_handles[-1])
